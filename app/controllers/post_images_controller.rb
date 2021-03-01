@@ -12,13 +12,15 @@ class PostImagesController < ApplicationController
   end
   
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page]).reverse_order
     # PostImageモデルの中にある全ての情報(全ての情報なので複数形)
+    # ペーシャの実装
   end
   
   def show
     @post_image = PostImage.find(params[:id])
     # PostImageモデルの中からparams[:id]を見つける
+    @post_comment = PostComment
   end
   
   def destroy
