@@ -8,6 +8,7 @@
   <% if @post_image.user == current_user %>
    <%= link_to"削除",post_image_path(@post_image),method: :delete %>
    <% end %>
+  <!--投稿の詳細項目-->
    
    <% if @post_image.favorited_by?(current_user) %>
    <p>
@@ -23,6 +24,8 @@
      </p>
      <% end %>
 </div>
+<!--いいね機能-->
+
 
 <div class="comments">
   <p>コメント件数:<%= @post_image.post_comments.count %></p>
@@ -43,4 +46,5 @@
    <%= f.submit "送信する" %>
   <% end %>
 </div>
+<!--投稿機能-->
 

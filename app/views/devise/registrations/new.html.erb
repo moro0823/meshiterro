@@ -1,6 +1,8 @@
 <h2>Sign up</h2>
 
 <%= form_with model: @user,url: user_registration_path,id: "new_user",class: "new_user",local: true do |f| %>
+   <!--データベースに保存（userモデルにuser_registration_path（ユーザー登録画面）、idを"new_user"として情報を渡す)
+   -->
   <%= render "devise/shared/error_messages", resource: resource %>
   
   <div class="field">
