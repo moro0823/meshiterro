@@ -1,0 +1,21 @@
+<% post_images.each do |post_image| %>　
+<!--＠post_images→post_images-->
+<!--post_imageコントローラから渡された@post_images変数内から１つずつ取りだしてpost_image変数へ格納するという指示-->
+<div>
+  <%= link_to post_image_path(post_image.id) do %>
+  <%= attachment_image_tag post_image, :image %>
+  <!--attachment_image_tagはrefile側が用意したヘルパーでimgタグを作成してくれる.post_image変数のimage_idに保存された画像のimgタグを生成する-->
+  <% end %>
+  <p>投稿ユーザー画像: <%= attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+  <p>ショップ名: <%= post_image.shop_name %></p>
+  <!--post_image変数のshop_nameカラムに表示する。このカラムはpost_imageモデルに定義されている-->
+  <p>説明: <%= post_image.caption %></p>
+  <!--post_image変数のcaptionカラムを表示する。このカラムもpost_imageモデルに定義されている-->
+  <p>ユーザーネーム: <%= post_image.user.name %></p>
+  <!--post_image変数のuser_idに関連つけられているuserモデルのnameカラムを表示する。このカラムもpost_imageに定義されている-->
+</div>
+<% end %>
+<%= paginate post_images %>
+<!--@post_images→post_images-->
+
+<!--部分テンプレートを作成したので@を外している-->

@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!,except: [:top]
   before_action :configure_permitted_parameters, if: :devise_controller?
   # devise_controller(ユーザー登録、ログイン認証機能)が使われる前に
   # configure_permitted_parametersを実行する
+  
+  def top
+  end
   
   def after_sign_in_path_for(resorce)
     post_images_path

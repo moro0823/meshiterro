@@ -1,5 +1,5 @@
 <div class="post-body">
-  <%= attachment_image_tag @post_image, :image %>
+  <%= attachment_image_tag @post_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
   <p>ショップ名:<%= @post_image.shop_name %></p>
   <p>説明:<%= @post_image.caption %></p>
   <p>ユーザーネーム:<%= @post_image.user.name %></p>
